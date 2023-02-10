@@ -1,0 +1,25 @@
+.footer {
+    width: 100%;
+    height: 130px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  
+  }
+  
+  .socialMedia img {
+    color: black;
+    margin: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    mix-blend-mode: darken;
+    gap: 50px;
+  }
+  

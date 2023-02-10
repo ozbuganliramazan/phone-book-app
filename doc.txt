@@ -1,0 +1,25 @@
+sayasın  temizleme
+
+
+eklenecek eklentiler
+- json server
+- axios
+-redux (state manegement ) (redux, react-redux)
+-react router-dom
+
+dosya dizaynı
+db.json dosyası oluşturnn
+redux dosyası oluşturup alt yapı yapılacak
+axios dosyası oluştur
+image klosörü
+style klosörü
+bootstrap dahill edilecek
+
+componet ler oluşturalack
+
+4 safadan oluşacak 
+1 ana sayfa
+2 gelen aramalar 
+3 cevapsız aramalar
+
+

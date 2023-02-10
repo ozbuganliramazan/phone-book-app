@@ -1,0 +1,42 @@
+{
+  "number": [
+    {
+      "id": "3",
+      "name": "Ahmet",
+      "lastname": "Harman",
+      "tel": "055 555 55 00",
+      "categoryId": "1"
+    },
+    {
+      "id": "1675192157858",
+      "name": "Mehmet",
+      "lastname": "Yılmaz",
+      "tel": "0542 000 00 00",
+      "categoryId": "1"
+    },
+    {
+      "id": "1676052819435",
+      "name": "Ali",
+      "lastname": "Yılmaz",
+      "tel": "0554 444 44 44",
+      "categoryId": "2"
+    },
+    {
+      "id": "1676052891252",
+      "name": "Ramazan",
+      "lastname": "kar",
+      "tel": "0554 444 44 44",
+      "categoryId": "2"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Cep"
+    },
+    {
+      "id": "2",
+      "name": "Telefon"
+    }
+  ]
+}
