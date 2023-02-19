@@ -1,4 +1,3 @@
-import { act } from "react-dom/test-utils";
 import actionTypes from "../actions/actionTypes";
 
 const initialState = {
@@ -57,13 +56,26 @@ const numberReducer = (state = initialState, action) => {
         fail: true,
         error: action.payload,
       };
-     
-      case actionTypes.numberActions.ADD_NUMBER:
-        return{
-            ...state,
-            number:[...state.number,action.payload]
-        }
 
+    case actionTypes.numberActions.ADD_NUMBER:
+      return {
+        ...state,
+        number: [...state.number, action.payload],
+      };
+
+    case actionTypes.numberActions.EDIT_NUMBER:
+     var tepm=[];
+      for (var  i=0; i<state.number.length;i++) {
+        if (state.number[i].id !== action.payload.id) {
+          tepm.push(state.number[i]);
+        } else {
+          tepm.push(action.payload);
+        }
+      }
+      return {
+        ...state,
+        number: tepm,
+      };
 
     default:
       return state;

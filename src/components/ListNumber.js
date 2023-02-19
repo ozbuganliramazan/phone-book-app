@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
 import urls from "../api/urls";
@@ -15,10 +15,21 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 const ListNumber = () => {
-    const naviget=useNavigate()
+  const naviget = useNavigate();
   const dispatch = useDispatch();
   const { numberState } = useSelector((state) => state);
-  const [call,setCall]=useState(false)
+  const [call, setCall] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [findeNumber, setFindeNumber] = useState(numberState.number);
+
+  useEffect(() => {
+    const temp = numberState.number.filter(
+      (item) =>
+        item.name.toLowerCase().includes(searchText.toLowerCase()) === true ||
+        item.lastname.toLowerCase().includes(searchText.toLowerCase()) === true
+    );
+    setFindeNumber(temp);
+  }, [searchText]);
 
   const deleteNumber = (id) => {
     dispatch({ type: actionTypes.numberActions.DELETE_NUMBER_START });
@@ -38,13 +49,17 @@ const ListNumber = () => {
       });
   };
 
-
-
-
   return (
- 
-<div className="my-5">
-      
+    <div className=" my-5">
+      <div className="d-flex justify-content-center my-5">
+        <input
+          className="form-control w-75 "
+          type="text"
+          placeholder="Aramak istediğiniz kişi ismini girin..."
+          value={searchText}
+          onChange={(event) => setSearchText(event.target.value)}
+        />
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -56,7 +71,7 @@ const ListNumber = () => {
           </tr>
         </thead>
         <tbody>
-          {numberState.number.map((number, index) => (
+          {findeNumber.map((number, index) => (
             <tr key={number.id}>
               <th scope="row">{index + 1} </th>
               <td>{number.name} </td>
@@ -64,29 +79,26 @@ const ListNumber = () => {
               <td>{number.tel} </td>
 
               <td>
-                <img src={deleteIcon} onClick={()=>deleteNumber(number.id)} />
-                <img src={les} onClick={()=>setCall(true)} />
-
+                <img src={deleteIcon} onClick={() => deleteNumber(number.id)} />
+                <img src={les} onClick={() => setCall(true)} />
               </td>
 
-              {
-               call === true &&(
+              {call === true && (
                 <td>
-                <img src={mesa} onClick={()=>naviget("/add-mesager")} />
-                <img src={phone} onClick={()=>setCall(false)} />
-                <img src={video} />
-                <img src={editIcon} />
+                  <img src={mesa} onClick={() => naviget("/add-mesager")} />
+                  <img src={phone} onClick={() => setCall(false)} />
+                  <img src={video} />
+                  <img
+                    src={editIcon}
+                    onClick={() => naviget(`/edit-number/${number.id}`)}
+                  />
                 </td>
-               )
-              }
-              
-              
+              )}
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    
   );
 };
 

@@ -29,6 +29,7 @@ const categoriesReducer=(state=initialState,action)=>{
                 fail:true,
                 error:action.payload
             }
+            
     
         default:
             return state

@@ -5,6 +5,7 @@ import MissedCall from "./pages/myMissedCall";
 import Messager from "./pages/messager";
 
 import "./assets/styles/app.css";
+import EditNumber from "./pages/EditNumber";
 
 
 
@@ -72,6 +73,7 @@ function App() {
       <Route path="/my-missed-call" element={<MissedCall/>} />
       <Route path="/add-mesager" element={<Messager/>} />
       <Route path="/lastCall" element={<LastCall/>} />
+      <Route path="/edit-number/:editId" element={<EditNumber/>} />
     </Routes>
    
   </BrowserRouter>
